@@ -4,10 +4,10 @@
       <div class="con">
         <div class="left-area">
           <div class="left-header">
-            <left-main></left-main>
+            <left-header></left-header>
           </div>
           <div class="left-main">
-            <left-header></left-header>
+            <left-main></left-main>
           </div>
           <div class="left-footer">
             <left-footer></left-footer>

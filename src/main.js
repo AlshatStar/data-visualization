@@ -8,6 +8,7 @@ import echarts from 'echarts'
 import ElementUi from 'element-ui'
 import VueParticles from 'vue-particles'
 import 'element-ui/lib/theme-chalk/index.css';
+import '@/font/iconfont.css';
 
 import vueg from 'vueg'
 import 'vueg/css/transition-min.css'
