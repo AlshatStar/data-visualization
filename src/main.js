@@ -3,12 +3,12 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-import axios from 'axios'
 import echarts from 'echarts'
 import ElementUi from 'element-ui'
 import VueParticles from 'vue-particles'
 import 'element-ui/lib/theme-chalk/index.css';
 import '@/font/iconfont.css';
+import {default as api} from './api/api';
 
 import vueg from 'vueg'
 import 'vueg/css/transition-min.css'
@@ -20,9 +20,9 @@ Vue.use(ElementUi);
 Vue.use(VueParticles);
 
 //修改axios原型链
-Vue.prototype.Axios = axios;
+ Vue.prototype.$api = api;
 //修改echarts原型链
-Vue.prototype.Echarts = echarts;
+Vue.prototype.$echarts = echarts;
 
 Vue.config.productionTip = false;
 

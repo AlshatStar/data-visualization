@@ -1,8 +1,8 @@
 <template>
-    <div class="app-container">
+    <div class="en-container">
         <bg></bg>
         <div class="contain">
-
+          <router-view  v-transition ></router-view>
         </div>
     </div>
 </template>
@@ -19,10 +19,13 @@
 </script>
 
 <style scoped>
+  .en-container{
+    height: 90%;
+  }
   .contain{
-    background: rgba(32,32,35,0.7);
-    width: 90%;
-    height: 59rem;
+    background: rgba(32,32,35,0.5);
+    width: 96%;
+    height: 100%;
     margin: 1rem auto 0;
   }
 
