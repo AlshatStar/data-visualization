@@ -2,7 +2,7 @@
     <div class="en-container">
         <bg></bg>
         <div class="contain">
-          <router-view  v-transition ></router-view>
+          <router-view></router-view>
         </div>
     </div>
 </template>

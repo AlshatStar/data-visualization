@@ -9,18 +9,18 @@
       <span class="memory-span">内存占用率</span>
       <span class="disk-span">磁盘占用率</span>
     </div>
-    <router-link to="/mainFooter" v-if="$route.path === '/'">
-      <i class="iconfont icon-fangda icon"></i>
-    </router-link>
-    <router-link to="/" v-else>
-      <i class="iconfont icon-suoxiao icon2"></i>
-    </router-link>
+    <icon path="/mainFooter"></icon>
 
   </div>
 </template>
 
 <script>
+  import icon from './parts/icon'
+
   export default {
+    components:{
+      icon
+    },
     data() {
       return {
       }
@@ -180,37 +180,17 @@
     bottom: 0;
     /*line-height: 200%;*/
     color: #fff;
-    font-size: 2rem;
+    font-size: 3vh;
   }
-  .span-div span{
+  .span-div span {
     width: 33%;
     /*width: 33%;*/
     display: block;
     float: left;
     text-align: center;
-     line-height: 10%;
+    line-height: 10%;
     margin-top: 0;
   }
 
-
-
-
-
-  .icon {
-    color: #fff;
-    position: absolute;
-    top: .5rem;
-    right: .5rem;
-    cursor: pointer;
-  }
-
-  .icon2 {
-    color: #fff;
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    cursor: pointer;
-    font-size: 2rem;
-  }
 
 </style>

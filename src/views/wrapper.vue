@@ -69,9 +69,6 @@
       bg
     },
     methods:{
-      // test(){
-      //
-      // }
     },
     mounted(){
       // this.test()
@@ -87,12 +84,12 @@
     height: 100%;
     width: 96%;
     margin: 1% auto;
+    position: relative;
     display: flex;
     justify-content: space-between;
-
   }
   .left-area, .right-area {
-    width: 27%;
+    width: 20%;
     height: 100%;
     float: left;
     display: flex;
@@ -101,7 +98,7 @@
   }
 
   .main-area {
-    width: 45%;
+    width: 59%;
     float: left;
     height: 100%;
     display: flex;
@@ -114,6 +111,8 @@
     height: 66.5%;
     /*background: rebeccapurple;*/
     background: rgba(32, 32, 35, 0.5);
+    cursor: pointer;
+
   }
 
   .left-header, .right-header, .left-main, .right-main, .right-footer, .left-footer, .main-footer {
@@ -121,8 +120,9 @@
     background: rgba(32, 32, 35, 0.5);
     width: 100%;
     height: 33%;
+    cursor: pointer;
+    position: relative;
 
   }
-
 
 </style>

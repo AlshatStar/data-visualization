@@ -30,12 +30,13 @@
 
   .header {
     position: relative;
-    line-height: 200%;
+
     height: 5%;
     box-sizing: border-box;
     text-align: center;
     color: #fff;
-    font-size: 2rem;
+    font-size: 4vh;
+    line-height: 7vh;
   }
 
 </style>

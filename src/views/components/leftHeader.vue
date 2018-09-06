@@ -1,18 +1,17 @@
 <template>
   <div class="app-container">
     <div id="chart"></div>
-    <router-link to="/leftHeader" v-if="$route.path === '/'">
-      <i class="iconfont icon-fangda icon" @click="changeRouter"></i>
-    </router-link>
-    <router-link to="/" v-else>
-      <i class="iconfont icon-suoxiao icon2" @click="changeRouter"></i>
-    </router-link>
+    <icon path="/leftHeader"></icon>
 
   </div>
 </template>
 
 <script>
+  import icon from './parts/icon'
   export default {
+    components:{
+      icon
+    },
     data(){
       return{
         change: true
@@ -101,22 +100,6 @@
     width: 100%;
     height: 100%;
   }
-  .icon{
-    color: #fff;
-    position: absolute;
-    top: .5rem;
-    right: .5rem;
-    cursor: pointer;
-  }
-  .icon2{
-    color: #fff;
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    cursor: pointer;
-    font-size: 2rem;
-  }
-
 
 
 </style>

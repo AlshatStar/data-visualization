@@ -3,6 +3,8 @@
     test
     <div id="chart"></div>
     <div style="width:700px;height:550px;border:#ccc solid 1px;" id="map" ref="map"></div>
+
+    <div class="center">test</div>
   </div>
 </template>
 
@@ -70,5 +72,39 @@
     width: 300px;
     height: 300px;
   }
+
+  .center{
+    width: 100px;
+    height: 100px;
+    margin: 20px;
+    position: relative;
+  }
+  .center::before, .center::after {
+    box-sizing: border-box;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    transform-origin: center;
+  }
+
+  .center::before {
+    border-top: .25vh solid #6477b9;
+    border-bottom: .25vh solid #6477b9;
+    transform: scale3d(0, 1, 1);
+  }
+  .center::after {
+    border-left: .25vh solid #6477b9;
+    border-right: .25vh solid #6477b9;
+    transform: scale3d(1, 0, 1);
+  }
+  .center:hover::before, .center:hover::after {
+    transform: scale3d(1, 1, 1);
+    transition: transform 0.5s;
+  }
+
+
 
 </style>

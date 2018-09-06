@@ -1,37 +1,161 @@
 leftFooter.vue<template>
     <div class="app-container">
-      <div style="width:100%;height:100%; font-size: .75rem" id="map" ref="map"></div>
+      <div id="map"></div>
     </div>
 </template>
 
 <script>
+  import busData from '@/data/busLine.json'
     export default {
+    data(){
+      return{
+        data: busData
+      }
+    },
 
         methods:{
           initMap(){
-            let map = new BMap.Map(this.$refs.map);
-            map.centerAndZoom(new BMap.Point(118.736907,32.04513),16);
+            let self = this
+            let myChart = this.$echarts.init(document.getElementById("map"));
 
-            map.enableScrollWheelZoom();
-            map.enableKeyboard();
-            map.enableDragging();
-            map.enableDoubleClickZoom();
+              let option = {
+                bmap: {
+                  center: [116.46, 39.92],
+                  zoom: 10,
+                  roam: true,
+                  mapStyle: {
+                    'styleJson': [
+                      // {
+                      //   'featureType': 'water',
+                      //   'elementType': 'all',
+                      //   'stylers': {
+                      //     'color': '#031628'
+                      //   }
+                      // },
+                      {
+                        'featureType': 'land',
+                        'elementType': 'geometry',
+                        'stylers': {
+                          'color': '#000102'
+                        }
+                      },
+                      {
+                        'featureType': 'highway',
+                        'elementType': 'all',
+                        'stylers': {
+                          'visibility': 'off'
+                        }
+                      },
+                      {
+                        'featureType': 'arterial',
+                        'elementType': 'geometry.fill',
+                        'stylers': {
+                          'color': '#000000'
+                        }
+                      },
+                      // {
+                      //   'featureType': 'arterial',
+                      //   'elementType': 'geometry.stroke',
+                      //   'stylers': {
+                      //     'color': '#0b3d51'
+                      //   }
+                      // },
+                      {
+                        'featureType': 'local',
+                        'elementType': 'geometry',
+                        'stylers': {
+                          'color': '#000000'
+                        }
+                      },
+                      // {
+                      //   'featureType': 'railway',
+                      //   'elementType': 'geometry.fill',
+                      //   'stylers': {
+                      //     'color': '#000000'
+                      //   }
+                      // },
+                      {
+                        'featureType': 'railway',
+                        'elementType': 'geometry.stroke',
+                        'stylers': {
+                          'color': '#08304b'
+                        }
+                      },
+                      {
+                        'featureType': 'subway',
+                        'elementType': 'geometry',
+                        'stylers': {
+                          'lightness': -70
+                        }
+                      },
+                      {
+                        'featureType': 'building',
+                        'elementType': 'geometry.fill',
+                        'stylers': {
+                          'color': '#000000'
+                        }
+                      },
+                      {
+                        'featureType': 'all',
+                        'elementType': 'labels.text.fill',
+                        'stylers': {
+                          'color': '#857f7f'
+                        }
+                      },
+                      {
+                        'featureType': 'all',
+                        'elementType': 'labels.text.stroke',
+                        'stylers': {
+                          'color': '#000000'
+                        }
+                      },
+                      {
+                        'featureType': 'building',
+                        'elementType': 'geometry',
+                        'stylers': {
+                          'color': '#022338'
+                        }
+                      },
+                      {
+                        'featureType': 'green',
+                        'elementType': 'geometry',
+                        'stylers': {
+                          'color': '#062032'
+                        }
+                      },
+                      {
+                        'featureType': 'boundary',
+                        'elementType': 'all',
+                        'stylers': {
+                          'color': '#465b6c'
+                        }
+                      },
+                      {
+                        'featureType': 'manmade',
+                        'elementType': 'all',
+                        'stylers': {
+                          'color': '#022338'
+                        }
+                      },
+                      // {
+                      //   'featureType': 'label',
+                      //   'elementType': 'all',
+                      //   'stylers': {
+                      //     'visibility': 'off'
+                      //   }
+                      // }
+                    ]
+                  }
+                }
+            }
 
-
-            let scaleControl = new BMap.ScaleControl({anchor:BMAP_ANCHOR_BOTTOM_LEFT});
-            scaleControl.setUnit(BMAP_UNIT_IMPERIAL);
-            map.addControl(scaleControl);
-            let navControl = new BMap.NavigationControl({anchor:BMAP_ANCHOR_TOP_LEFT,type:BMAP_NAVIGATION_CONTROL_LARGE});
-            map.addControl(navControl);
-            let overviewControl = new BMap.OverviewMapControl({anchor:BMAP_ANCHOR_BOTTOM_RIGHT,isOpen:true});
-            map.addControl(overviewControl);
-
-
+            myChart.setOption(option);
 
           }
         },
       mounted(){
           this.initMap()
+        // console.log(busData);
       }
     }
 </script>
@@ -41,6 +165,13 @@ leftFooter.vue<template>
   .app-container{
     width: 100%;
     height: 100%;
+    position: relative;
+  }
+
+  #map{
+    width: 100%;
+    height: 100%;
+
   }
 
 </style>
