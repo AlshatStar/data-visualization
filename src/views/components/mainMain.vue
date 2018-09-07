@@ -5,11 +5,12 @@ leftFooter.vue<template>
 </template>
 
 <script>
-  import busData from '@/data/busLine.json'
+
+  // import data from '@/data/bmap.min'
     export default {
     data(){
       return{
-        data: busData
+        // data: busData
       }
     },
 
@@ -18,138 +19,182 @@ leftFooter.vue<template>
             let self = this
             let myChart = this.$echarts.init(document.getElementById("map"));
 
-              let option = {
-                bmap: {
-                  center: [116.46, 39.92],
-                  zoom: 10,
-                  roam: true,
-                  mapStyle: {
-                    'styleJson': [
-                      // {
-                      //   'featureType': 'water',
-                      //   'elementType': 'all',
-                      //   'stylers': {
-                      //     'color': '#031628'
-                      //   }
-                      // },
-                      {
-                        'featureType': 'land',
-                        'elementType': 'geometry',
-                        'stylers': {
-                          'color': '#000102'
-                        }
-                      },
-                      {
-                        'featureType': 'highway',
-                        'elementType': 'all',
-                        'stylers': {
-                          'visibility': 'off'
-                        }
-                      },
-                      {
-                        'featureType': 'arterial',
-                        'elementType': 'geometry.fill',
-                        'stylers': {
-                          'color': '#000000'
-                        }
-                      },
-                      // {
-                      //   'featureType': 'arterial',
-                      //   'elementType': 'geometry.stroke',
-                      //   'stylers': {
-                      //     'color': '#0b3d51'
-                      //   }
-                      // },
-                      {
-                        'featureType': 'local',
-                        'elementType': 'geometry',
-                        'stylers': {
-                          'color': '#000000'
-                        }
-                      },
-                      // {
-                      //   'featureType': 'railway',
-                      //   'elementType': 'geometry.fill',
-                      //   'stylers': {
-                      //     'color': '#000000'
-                      //   }
-                      // },
-                      {
-                        'featureType': 'railway',
-                        'elementType': 'geometry.stroke',
-                        'stylers': {
-                          'color': '#08304b'
-                        }
-                      },
-                      {
-                        'featureType': 'subway',
-                        'elementType': 'geometry',
-                        'stylers': {
-                          'lightness': -70
-                        }
-                      },
-                      {
-                        'featureType': 'building',
-                        'elementType': 'geometry.fill',
-                        'stylers': {
-                          'color': '#000000'
-                        }
-                      },
-                      {
-                        'featureType': 'all',
-                        'elementType': 'labels.text.fill',
-                        'stylers': {
-                          'color': '#857f7f'
-                        }
-                      },
-                      {
-                        'featureType': 'all',
-                        'elementType': 'labels.text.stroke',
-                        'stylers': {
-                          'color': '#000000'
-                        }
-                      },
-                      {
-                        'featureType': 'building',
-                        'elementType': 'geometry',
-                        'stylers': {
-                          'color': '#022338'
-                        }
-                      },
-                      {
-                        'featureType': 'green',
-                        'elementType': 'geometry',
-                        'stylers': {
-                          'color': '#062032'
-                        }
-                      },
-                      {
-                        'featureType': 'boundary',
-                        'elementType': 'all',
-                        'stylers': {
-                          'color': '#465b6c'
-                        }
-                      },
-                      {
-                        'featureType': 'manmade',
-                        'elementType': 'all',
-                        'stylers': {
-                          'color': '#022338'
-                        }
-                      },
-                      // {
-                      //   'featureType': 'label',
-                      //   'elementType': 'all',
-                      //   'stylers': {
-                      //     'visibility': 'off'
-                      //   }
-                      // }
-                    ]
-                  }
-                }
-            }
+            // myChart.setOption({
+            //   bmap: {
+            //     center: [118.8029140176, 32.0647517242],
+            //     zoom: 14,
+            //     roam: true,
+            //     mapStyle: {
+            //       styleJson: [
+            //         {
+            //           'featureType': 'land',     //调整土地颜色
+            //           'elementType': 'geometry',
+            //           'stylers': {
+            //             'color': '#081734'
+            //           }
+            //         },
+            //         {
+            //           'featureType': 'building',   //调整建筑物颜色
+            //           'elementType': 'geometry',
+            //           'stylers': {
+            //             'color': '#04406F'
+            //           }
+            //         },
+            //         {
+            //           'featureType': 'building',   //调整建筑物标签是否可视
+            //           'elementType': 'labels',
+            //           'stylers': {
+            //             'visibility': 'off'
+            //           }
+            //         },
+            //         {
+            //           'featureType': 'highway',     //调整高速道路颜色
+            //           'elementType': 'geometry',
+            //           'stylers': {
+            //             'color': '#015B99'
+            //           }
+            //         },
+            //         {
+            //           'featureType': 'highway',    //调整高速名字是否可视
+            //           'elementType': 'labels',
+            //           'stylers': {
+            //             'visibility': 'off'
+            //           }
+            //         },
+            //         {
+            //           'featureType': 'arterial',   //调整一些干道颜色
+            //           'elementType': 'geometry',
+            //           'stylers': {
+            //             'color':'#003051'
+            //           }
+            //         },
+            //         {
+            //           'featureType': 'arterial',
+            //           'elementType': 'labels',
+            //           'stylers': {
+            //             'visibility': 'off'
+            //           }
+            //         },
+            //         {
+            //           'featureType': 'green',
+            //           'elementType': 'geometry',
+            //           'stylers': {
+            //             'visibility': 'off'
+            //           }
+            //         },
+            //         {
+            //           'featureType': 'water',
+            //           'elementType': 'geometry',
+            //           'stylers': {
+            //             'color': '#044161'
+            //           }
+            //         },
+            //         {
+            //           'featureType': 'subway',    //调整地铁颜色
+            //           'elementType': 'geometry.stroke',
+            //           'stylers': {
+            //             'color': '#003051'
+            //           }
+            //         },
+            //         {
+            //           'featureType': 'subway',
+            //           'elementType': 'labels',
+            //           'stylers': {
+            //             'visibility': 'off'
+            //           }
+            //         },
+            //         {
+            //           'featureType': 'railway',
+            //           'elementType': 'geometry',
+            //           'stylers': {
+            //             'visibility': 'off'
+            //           }
+            //         },
+            //         {
+            //           'featureType': 'railway',
+            //           'elementType': 'labels',
+            //           'stylers': {
+            //             'visibility': 'off'
+            //           }
+            //         },
+            //         {
+            //           'featureType': 'all',     //调整所有的标签的边缘颜色
+            //           'elementType': 'labels.text.stroke',
+            //           'stylers': {
+            //             'color': '#313131'
+            //           }
+            //         },
+            //         {
+            //           'featureType': 'all',     //调整所有标签的填充颜色
+            //           'elementType': 'labels.text.fill',
+            //           'stylers': {
+            //             'color': '#FFFFFF'
+            //           }
+            //         },
+            //         {
+            //           'featureType': 'manmade',
+            //           'elementType': 'geometry',
+            //           'stylers': {
+            //             'visibility': 'off'
+            //           }
+            //         },
+            //         {
+            //           'featureType': 'manmade',
+            //           'elementType': 'labels',
+            //           'stylers': {
+            //             'visibility': 'off'
+            //           }
+            //         },
+            //         {
+            //           'featureType': 'local',
+            //           'elementType': 'geometry',
+            //           'stylers': {
+            //             'visibility': 'off'
+            //           }
+            //         },
+            //         {
+            //           'featureType': 'local',
+            //           'elementType': 'labels',
+            //           'stylers': {
+            //             'visibility': 'off'
+            //           }
+            //         },
+            //         {
+            //           'featureType': 'subway',
+            //           'elementType': 'geometry',
+            //           'stylers': {
+            //             'lightness': -65
+            //           }
+            //         },
+            //         {
+            //           'featureType': 'railway',
+            //           'elementType': 'all',
+            //           'stylers': {
+            //             'lightness': -40
+            //           }
+            //         },
+            //         {
+            //           'featureType': 'boundary',
+            //           'elementType': 'geometry',
+            //           'stylers': {
+            //             'color': '#8b8787',
+            //             'weight': '1',
+            //             'lightness': -29
+            //           }
+            //         }]
+            //     }
+            //   },
+            //   series: [{
+            //     type: 'scatter',
+            //     coordinateSystem: 'bmap',
+            //     data: [ [120, 30, 1] ]
+            //   }]
+            //
+            //
+            // });
 
-            myChart.setOption(option);
+            var bmap = myChart.getModel().getComponent('bmap').getBMap();
+            bmap.addControl(new BMap.MapTypeControl());
 
           }
         },

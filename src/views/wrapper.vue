@@ -88,6 +88,39 @@
     display: flex;
     justify-content: space-between;
   }
+
+  .con:before,.con:after{
+    content: " ";
+    display: block;
+    position: absolute;
+    width:98vw;
+    height: 92vh;
+    top: -1vh;
+    left: -1vw;
+    border:.2vw solid #66CCFF;
+    z-index:10;
+    box-sizing: border-box;
+    -webkit-animation: clipAni 30s infinite linear;
+  }
+  .con:before{
+    -webkit-animation-delay: -15s;
+  }
+  @keyframes  clipAni{
+    0%,100%{
+      clip:rect(0vw,98vw,92vh,95vw);
+    }
+    25%{
+      clip:rect(0vw,98vw,3vh,0vw);
+    }
+    50%{
+      clip:rect(0vw,3vw,92vh,0vw);
+    }
+    75%{
+      clip:rect(89vh,98vw,92vh,0vw);
+    }
+  }
+
+
   .left-area, .right-area {
     width: 20%;
     height: 100%;
